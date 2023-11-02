@@ -1,0 +1,82 @@
+{% extends 'main.html' %}
+{% block content %}
+{% include 'accounts/status.html' %}
+
+    <style>
+        /* Add your CSS styling here */
+        .dashboard {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .column {
+            width: 48%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #5b23d2;
+            padding: 8px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: hsl(228, 91%, 50%);
+        }
+    </style>
+</head>
+<body>
+    <h1>Customer Dashboard</h1>
+    <div class="dashboard">
+        <div class="column">
+         
+            <table>
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Customer Purchase</th>
+                </tr>
+                <tr>
+                    <td>12345</td>
+                    <td>Order #1</td>
+                </tr>
+                <tr>
+                    <td>54321</td>
+                    <td>Order #2</td>
+                </tr>
+                <!-- Add more customer information rows -->
+            </table>
+        </div>
+
+        <div class="column">
+            <h2>Order Information</h2>
+            <table>
+                <tr>
+                    <th>Status</th>
+                    <th>Update</th>
+                    <th>Remove</th>
+                    <th>Last Purchase</th>
+                </tr>
+                <tr>
+                    <td>Processing</td>
+                    <td><button onclick="updateOrder(1)">Update</button></td>
+                    <td><button onclick="removeOrder(1)">Remove</button></td>
+                    <td>2023-10-15</td>
+                </tr>
+                <tr>
+                    <td>Shipped</td>
+                    <td><button onclick="updateOrder(2)">Update</button></td>
+                    <td><button onclick="removeOrder(2)">Remove</button></td>
+                    <td>2023-10-20</td>
+                </tr>
+                <!-- Add more order information rows -->
+            </table>
+        </div>
+    </div>
+
+    
+    
+{% endblock content %}
