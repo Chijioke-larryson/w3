@@ -1,9 +1,31 @@
-
 {%  load static %}
 {%  block body %}
+<head>
+    <meta charset="utf-8">
+    <title>eBusiness Bootstrap Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+  
+    <!-- Favicons -->
+    {% include 'css.html' %}
+  
+    <!-- =======================================================
+      Theme Name: eBusiness
+      Theme URL: https://bootstrapmade.com/ebusiness-bootstrap-corporate-template/
+      Author: BootstrapMade.com
+      License: https://bootstrapmade.com/license/
+    ======================================================= -->
+  </head>
+  <body data-spy="scroll" data-target="#navbar-example">
 
-{% include 'css.html' %}
- <!-- Start Slider Area -->
+    <div id="preloader"></div>
+  
+    {% include 'head.html' %}
+    <!-- header end -->
+  
+    <!-- Start Slider Area -->
+    <!-- Start Slider Area -->
  <div id="home" class="slider-area">
     <div class="bend niceties preview-2">
       <div id="ensign-nivoslider" class="slides">
@@ -947,11 +969,12 @@
         </div>
         <div class="row">
           <!-- Start Left Blog -->
+          {% for blog in blogs %}
           <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="single-blog">
               <div class="single-blog-img">
                 <a href="{% url 'kumia:blog' %}">
-										<img src=" {% static 'img/blog/1.jpg' %}" alt="">
+										<img src="{{blog.image.url}}" alt="">
 									</a>
               </div>
               <div class="blog-meta">
@@ -960,15 +983,15 @@
 										<a href="#">13 comments</a>
 									</span>
                 <span class="date-type">
-										<i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+										<i class="fa fa-calendar"></i>{{blog.date_created}} / 09:10:16
 									</span>
               </div>
               <div class="blog-text">
                 <h4>
-                                        <a href="blog.html">Assumenda repud eum veniam</a>
+                                        <a href="blog.html">{{blog.title}}</a>
 									</h4>
                 <p>
-                  Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                  {{blog.body}}
                 </p>
               </div>
               <span>
@@ -977,70 +1000,9 @@
             </div>
             <!-- Start single blog -->
           </div>
-          <!-- End Left Blog-->
-          <!-- Start Left Blog -->
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="single-blog">
-              <div class="single-blog-img">
-                <a href="blog.html">
-										<img src="{% static 'img/blog/2.jpg' %}" alt="">
-									</a>
-              </div>
-              <div class="blog-meta">
-                <span class="comments-type">
-										<i class="fa fa-comment-o"></i>
-										<a href="#">130 comments</a>
-									</span>
-                <span class="date-type">
-										<i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-									</span>
-              </div>
-              <div class="blog-text">
-                <h4>
-                                        <a href="blog.html">Explicabo magnam quibusdam.</a>
-									</h4>
-                <p>
-                  Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
-                </p>
-              </div>
-              <span>
-									<a href="blog.html" class="ready-btn">Read more</a>
-								</span>
-            </div>
-            <!-- Start single blog -->
-          </div>
-          <!-- End Left Blog-->
-          <!-- Start Right Blog-->
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="single-blog">
-              <div class="single-blog-img">
-                <a href="blog.html">
-										<img src="{% static 'img/blog/3.jpg' %}" alt="">
-									</a>
-              </div>
-              <div class="blog-meta">
-                <span class="comments-type">
-										<i class="fa fa-comment-o"></i>
-										<a href="#">10 comments</a>
-									</span>
-                <span class="date-type">
-										<i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-									</span>
-              </div>
-              <div class="blog-text">
-                <h4>
-                                        <a href="blog.html">Lorem ipsum dolor sit amet</a>
-									</h4>
-                <p>
-                  Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
-                </p>
-              </div>
-              <span>
-									<a href="blog.html" class="ready-btn">Read more</a>
-								</span>
-            </div>
-          </div>
-          <!-- End Right Blog-->
+          {% endfor %}
+          
+          <!-- End single Blog-->
         </div>
       </div>
     </div>
@@ -1152,7 +1114,21 @@
     </div>
   </div>
   <!-- End Contact Area -->
+  
+    <!-- Start Footer bottom Area -->
+    {% include 'footer.html' %}
+  
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  
+    <!-- JavaScript Libraries -->
+    {% include 'js.html' %}
+  
 
-  {% include 'js.html' %}
+  </body>
 
- {% endblock body %}
+
+
+
+{% include 'js.html' %}
+
+{% endblock body %}

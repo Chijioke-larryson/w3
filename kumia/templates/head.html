@@ -1,8 +1,5 @@
 
 
-
-
-
 {% load static %}
 {% block head %}
 
@@ -58,7 +55,7 @@
                   </li>
 
                   <li>
-                    <a class="page-scroll" href="#blog">Blog</a>
+                    <a class="page-scroll" href="{% url 'kumia:blogs' %}">Blog</a>
                   </li>
                   <li>
                     <a class="page-scroll" href="#contact">Contact</a>
@@ -73,9 +70,8 @@
       </div>
     </div>
     <!-- header-area end -->
-  </header>
-  <!-- header end -->
-  {% include 'main.html'%}
+</header>
+<!-- header end -->
 
 
-  {% endblock head %}
+{% endblock head %}
