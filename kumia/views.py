@@ -48,3 +48,15 @@ class Blogs(View):
             'blogs' : blogs,
         }
         return render(self.request, 'blogs.html', context)
+
+class BlogDetailView(DetailView):
+    model = Blog
+    template_name = 'home.html'
+    # slug_field = 'post_id'
+    # slug_url_kwarg = 'post_id'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        blogs = Blog.objects.all().exclude(pk=self.object.id)
+        context["blogs"] = blogs
+        return context

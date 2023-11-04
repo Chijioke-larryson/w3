@@ -973,7 +973,7 @@
           <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="single-blog">
               <div class="single-blog-img">
-                <a href="{% url 'kumia:blog' %}">
+                <a href="{% url 'kumia:blog_detail' blog.id %}">
 										<img src="{{blog.image.url}}" alt="">
 									</a>
               </div>
@@ -983,7 +983,7 @@
 										<a href="#">13 comments</a>
 									</span>
                 <span class="date-type">
-										<i class="fa fa-calendar"></i>{{blog.date_created}} / 09:10:16
+										<i class="fa fa-calendar"></i>{{blog.post_date}}
 									</span>
               </div>
               <div class="blog-text">
@@ -1125,10 +1125,5 @@
   
 
   </body>
-
-
-
-
-{% include 'js.html' %}
 
 {% endblock body %}
